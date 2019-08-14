@@ -1,0 +1,12 @@
+{
+    "name": "Gabriel Valdez",
+    "id": "7174304",
+    "age": 24,
+    "password": "himalaya",
+    "formation": {
+        "school": "San Bernardo de Tarija",
+        "university": "Universidad Privada Boliviana",
+        "post-grade": false
+    }
+
+}
