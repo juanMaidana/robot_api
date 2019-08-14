@@ -1,0 +1,4 @@
+{
+  "projects": "/projects",
+  "project": "/projects/$ID(0)"
+}

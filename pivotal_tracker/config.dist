@@ -1,0 +1,14 @@
+{
+  "base_url": "",
+  "headers": {
+    "token": "",
+    "contents": ""
+  },
+  "users": {
+    "owner": {
+      "token": "",
+      "username": "",
+      "password": ""
+    }
+  }
+}
