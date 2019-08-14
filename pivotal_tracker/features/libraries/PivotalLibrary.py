@@ -12,6 +12,21 @@ endpoints = json_reader(join(dirname(realpath(__file__)),
                              '..', '..', 'endpoints.json'))
 
 
+def log_in_api(user):
+    context.api = PivotalRequest()
+    context.username = user
+
+
+def do_user_request(http_type, endpoint_name, data):
+    context.api.build_end_point(config["base_url"] + endpoints[endpoint_name])
+    context.headers = {
+        config["headers"]["token"]: config["users"][context.username]["token"],
+        config["headers"]["contents"]: "application/json",
+    }
+    data = dumps(data) if data else data
+    context.api.do_request(http_type, context.headers, data=data)
+
+
 def do_request(http_type, endpoint_name, username, data):
     context.api = PivotalRequest()
     context.api.build_end_point(config["base_url"]+endpoints[endpoint_name])
