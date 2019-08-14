@@ -107,3 +107,4 @@ venv.bak/
 test_results/
 .idea/
 venv/
+config.json
