@@ -8,17 +8,21 @@ endpoints = json_reader(join(dirname(realpath(__file__)), '..', 'endpoints.json'
 ROBOT_LISTENER_API_VERSION = 2
 
 
-def end_suite(name, attrs):
+def delete_end_objects(generic_tag, specific):
     api = PivotalRequest()
     headers = {
         config["headers"]["token"]: config["users"]["owner"]["token"],
         config["headers"]["contents"]: "application/json",
     }
-    api.build_end_point(config["base_url"] + endpoints["projects"])
+    api.build_end_point(config["base_url"] + endpoints[generic_tag])
     api.do_request('GET', headers)
     projects = api.get_json()
     for item in projects:
-        if "viper" in item["name"]:
-            api.build_end_point(config["base_url"] + endpoints["project"], item["id"])
+        if config.get("prefix") in item["name"]:
+            api.build_end_point(config["base_url"] + endpoints[specific], item["id"])
             api.do_request('DELETE', headers)
 
+
+def end_suite(name, attrs):
+    delete_end_objects("projects", "project")
+    delete_end_objects("workspaces", "workspace")
