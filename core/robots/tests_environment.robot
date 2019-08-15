@@ -3,7 +3,8 @@ Resource    core_resources.robot
 
 *** Test Cases ***
 Verify that I can change my username environment variable
-    Given The environment variable USERNAME is set to gabriel
+    ${USERNAME}=    get environment variable    USERNAME
+    Given The environment variable USERNAME is set to ${USERNAME}
     When I set the environment variable VIPRE_TEST_VARIABLE to luis
     Then The environment variable VIPRE_TEST_VARIABLE is set to luis
     And I remove the variable VIPRE_TEST_VARIABLE from environment
