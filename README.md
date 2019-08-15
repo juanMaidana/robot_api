@@ -4,7 +4,7 @@ API Testing using RobotFramework
 ## Execute Test files
 To execute sample test files found core.
 ```
-python -m robot -d test_results/ core/robots/*.robot
+python -m robot -d test_results/ core/robots/tests*.robot
 ```
 You should manually create a test_results/ folder or change the results path.
 
