@@ -29,3 +29,14 @@ Verify that I can create a new project - Gherkin version
     When I send a POST request to projects with data ${project_data}
     Then I expect the status code is 200
     And I expect the reponse id is not empty
+
+Veirfy taht I can create multiple projects
+    ${project_data_1}=  create dictionary  name=vipre_project_4
+    ${project_data_2}=  create dictionary  name=vipre_project_5
+    ${project_data_3}=  create dictionary  name=vipre_project_6
+    @{projects_data}    create list     ${project_data_1}   ${project_data_2}   ${project_data_3}
+    :FOR    ${element}    IN    @{projects_data}
+    \   Given I start a connection with the Pivotal Tracker API as owner
+    \   When I send a POST request to projects with data ${element}
+    \   Then I expect the status code is 200
+    \   And I expect the reponse id is not empty

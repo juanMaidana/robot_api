@@ -10,7 +10,7 @@ I send a ${HTTP_TYPE} request to ${ENDPOINT} with data ${DATA}
 
 I expect the status code is ${CODE}
     ${status_code}=     get status code
-    should be equal     ${status_code}     200
+    should be equal     ${status_code}     ${CODE}
 
 I expect the reponse ${VALUE} is not empty
     ${id}=  get from response   ${VALUE}
