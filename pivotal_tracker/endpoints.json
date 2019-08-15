@@ -1,4 +1,6 @@
 {
   "projects": "/projects",
-  "project": "/projects/$ID(0)"
+  "project": "/projects/$ID(0)",
+  "workspaces": "/my/workspaces",
+  "workspace": "/my/workspaces/$ID(0)"
 }

@@ -1,5 +1,5 @@
 *** Settings ***
-Library     libraries/PivotalLibrary.py
+Library     ../libraries/pivotal_library.py
 
 *** Keywords ***
 I start a connection with the Pivotal Tracker API as ${USERNAME}
