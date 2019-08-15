@@ -1,5 +1,5 @@
 *** Settings ***
-Library     ../libraries/MyLibrary.py
+Library     ../libraries/my_library.py
 
 *** Test Cases ***
 Example that calls a Python keyword

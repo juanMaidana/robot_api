@@ -2,13 +2,15 @@ from pivotal_tracker.utils.pivotal_request import PivotalRequest
 from core.utils.json_reader import json_reader
 from os.path import join, realpath, dirname
 
-config = json_reader(join(dirname(realpath(__file__)), '..', 'config.json'))
-endpoints = json_reader(join(dirname(realpath(__file__)), '..', 'endpoints.json'))
+config = json_reader(join(dirname(realpath(__file__)),
+                          '..', 'config.json'))
+endpoints = json_reader(join(dirname(realpath(__file__)),
+                             '..', 'endpoints.json'))
 
 ROBOT_LISTENER_API_VERSION = 2
 
 
-def delete_end_objects(generic_tag, specific):
+def delete_objects(generic_tag, specific):
     api = PivotalRequest()
     headers = {
         config["headers"]["token"]: config["users"]["owner"]["token"],
@@ -24,5 +26,10 @@ def delete_end_objects(generic_tag, specific):
 
 
 def end_suite(name, attrs):
-    delete_end_objects("projects", "project")
-    delete_end_objects("workspaces", "workspace")
+    delete_objects("projects", "project")
+    delete_objects("workspaces", "workspace")
+
+
+def start_suite(name, attrs):
+    delete_objects("projects", "project")
+    delete_objects("workspaces", "workspace")

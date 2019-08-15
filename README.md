@@ -13,5 +13,5 @@ Create a config.json file with your credentials. An example can be found on: piv
 
 Then, simply run:
 ```
-python -m robot -d test_results/ --listener pivotal_tracker/features/MyListener.py pivotal_tracker/features/feature*.robot
+python -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py pivotal_tracker/robots/feature*.robot
 ```

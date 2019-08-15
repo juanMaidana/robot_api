@@ -1,4 +1,4 @@
-from core.features.libraries.MyLibrary import *
+from core.libraries.my_library import *
 from pivotal_tracker.utils.pivotal_request import PivotalRequest
 from pivotal_tracker.utils.context import Context
 from core.utils.json_reader import json_reader
@@ -7,9 +7,9 @@ from json import dumps
 
 context = Context()
 config = json_reader(join(dirname(realpath(__file__)),
-                          '..', '..', 'config.json'))
+                          '..', 'config.json'))
 endpoints = json_reader(join(dirname(realpath(__file__)),
-                             '..', '..', 'endpoints.json'))
+                             '..', 'endpoints.json'))
 
 
 def log_in_api(user):

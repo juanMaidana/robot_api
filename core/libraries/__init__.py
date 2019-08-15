@@ -1,1 +1,1 @@
-import MyLibrary
+import my_library
