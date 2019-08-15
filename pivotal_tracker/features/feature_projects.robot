@@ -9,7 +9,7 @@ Verify that I can get the user's projects list
 
 Verify that I can create a new project
     ${data} =  create dictionary
-    ...     name    viper_project_test_1
+    ...     name    vipre_project_test_1
     do request   POST    projects   owner   ${data}
     ${status_code}=     get status code
     should be equal     ${status_code}     200
@@ -24,7 +24,7 @@ Verify that I can get the user's project list - Gherkin version
 
 Verify that I can create a new project - Gherkin version
     ${project_data} =  create dictionary
-    ...     name    viper_project_test_2
+    ...     name    vipre_project_test_2
     Given I start a connection with the Pivotal Tracker API as owner
     When I send a POST request to projects with data ${project_data}
     Then I expect the status code is 200
