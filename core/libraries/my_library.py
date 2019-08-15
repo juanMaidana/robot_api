@@ -15,10 +15,10 @@ def get_project_path():
 
 
 def get_operating_system(environment_variables):
-    if "DESKTOP_SESSION" in environment_variables:
+    if "SHELL" in environment_variables:
         return "LINUX"
-    elif "OS" in environment_variables:
-        return "WINDOWS"
+    else:
+        return "OTHER"
 
 
 def prepare_contents(operating_system, raw_data):
