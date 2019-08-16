@@ -1,15 +1,13 @@
 {
   "base_url": "",
-  "prefix": "",
+  "prefix": "vipre",
   "headers": {
     "token": "",
     "contents": ""
   },
   "users": {
     "owner": {
-      "token": "",
-      "username": "",
-      "password": ""
+      "token": ""
     }
   }
 }

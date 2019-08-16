@@ -17,7 +17,9 @@ python -m robot -d test_results/ core/robots/tests*.robot
 *You may manually create a test_results/ folder or change the results path.*
 
 ### Pivotal Tracker Test Cases
-Create a config.json file with your credentials. A template can be found on: pivotal_tracker/config.dist
+Create a config.json file with your credentials. 
+A template can be found on: pivotal_tracker/config.dist. 
+More details [here](#generating-pivotal-config-file).
 
 Then, simply run the following command.
 ```
@@ -25,3 +27,14 @@ python -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_li
 ```
 *You might need an account with free-trial account by default. 
 All test objects created are deleted at the end of execution*
+
+### Generating Pivotal Config File
+Copy the template on: pivotal_tracker/config.dist and create a config.json file on the same directory.
+Then, fill the missing values as it follows:
+* **base_url**: the url to do the http request on its base form, example for APIv5 "https://www.pivotaltracker.com/services/v5".
+* **headers**: headers for the request, for APIv5 token=X-TrackerToken and contents="Content-Type".
+* **users**: the token the is going to be used to log in the pivotal tracker service. 
+It can usually be found on your Pivotal Tracker account information.
+
+*Once you create this configuration file correctly, you should be able to run all tests files.*
+
