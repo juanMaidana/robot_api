@@ -2,16 +2,16 @@
 Library     ../libraries/pivotal_library.py
 
 *** Keywords ***
-I start a connection with the Pivotal Tracker API as ${USERNAME}
+A connection is started with Pivotal Tracker API as ${USERNAME}
     log in api  owner
 
-I send a ${HTTP_TYPE} request to ${ENDPOINT} with data ${DATA}
+A ${HTTP_TYPE} request is sent to ${ENDPOINT} with data ${DATA}
     do user request  ${HTTP_TYPE}   ${ENDPOINT}    ${DATA}
 
-I expect the status code is ${CODE}
+Status code ${CODE} is expected
     ${status_code}=     get status code
     should be equal     ${status_code}     ${CODE}
 
-I expect the reponse ${VALUE} is not empty
+Is expected that response ${VALUE} is not empty
     ${id}=  get from response   ${VALUE}
     should not be equal  ${EMPTY}   ${id}
