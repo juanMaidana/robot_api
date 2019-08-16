@@ -11,6 +11,12 @@ ROBOT_LISTENER_API_VERSION = 2
 
 
 def delete_objects(generic_tag, specific):
+    """Delete objects on pivotal tracker.
+
+    :param generic_tag: used to get all objects.
+    :param specific: used to delete objects by id.
+    :return: exit code 0.
+    """
     api = PivotalRequest()
     headers = {
         config["headers"]["token"]: config["users"]["owner"]["token"],
@@ -21,15 +27,18 @@ def delete_objects(generic_tag, specific):
     projects = api.get_json()
     for item in projects:
         if config.get("prefix") in item["name"]:
-            api.build_end_point(config["base_url"] + endpoints[specific], item["id"])
+            api.build_end_point(config["base_url"] +
+                                endpoints[specific], item["id"])
             api.do_request('DELETE', headers)
 
 
-def end_suite(name, attrs):
+def start_suite(name, attrs):
+    """At the start of the execution delete objects."""
     delete_objects("projects", "project")
     delete_objects("workspaces", "workspace")
 
 
-def start_suite(name, attrs):
+def end_suite(name, attrs):
+    """At the end of the execution delete objects."""
     delete_objects("projects", "project")
     delete_objects("workspaces", "workspace")
