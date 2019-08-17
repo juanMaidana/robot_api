@@ -10,5 +10,4 @@ args = []
 for config in setup.get("args"):
     if setup.get("args")[config]:
         args.append("--" + config + " " + setup.get("args")[config])
-print(' '.join(command + args + [setup["test_cases"]]))
 os.system(' '.join(command + args + [setup["test_cases"]]))
