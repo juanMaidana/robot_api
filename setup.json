@@ -1,7 +1,8 @@
 {
   "outputdir": "test_results/",
   "loglevel":"TRACE:DEBUG",
-  "exclude": "gherkins",
+  "exclude": "",
+  "include": "gherkins",
   "listener": "pivotal_tracker/libraries/pivotal_listener.py",
   "(test_cases)": "pivotal_tracker/robots/*/*.robot"
 }

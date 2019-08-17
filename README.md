@@ -25,7 +25,15 @@ Then, simply run the following command.
 ```
 python setup.py
 ```
- All the attributes (listener, loglevel, etc.) that are sent to execute the application are included in setup.json.  
+All the attributes (listener, loglevel, tags, etc.) that are sent to execute the application are included in setup.json.
+
+To run only features with a certain tag you may go to setup.json and in the field "include" put the tag,   
+for example to run features tagged as gherkin:
+```
+{
+"include": "gherkins"
+}
+```
 
 *You might need an account with free-trial account by default. 
 All test objects created are deleted at the end of execution*
