@@ -4,11 +4,11 @@ from object_management.json.json_reader import json_reader
 
 setup = json_reader(join(dirname(realpath(__file__)), 'setup.json'))
 
-command = ["python -m robot"]
+command = [setup.get("python_version"), "-m robot"]
 
 args = []
-for config in setup:
-    if setup[config] and config != "(test_cases)":
-        args.append("--" + config + " " + setup[config])
-
-os.system(' '.join(command + args + [setup["(test_cases)"]]))
+for config in setup.get("args"):
+    if setup.get("args")[config]:
+        args.append("--" + config + " " + setup.get("args")[config])
+print(' '.join(command + args + [setup["test_cases"]]))
+os.system(' '.join(command + args + [setup["test_cases"]]))

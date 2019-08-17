@@ -1,8 +1,12 @@
 {
-  "outputdir": "test_results/",
-  "loglevel":"TRACE:DEBUG",
-  "exclude": "",
-  "include": "gherkins",
-  "listener": "pivotal_tracker/libraries/pivotal_listener.py",
-  "(test_cases)": "pivotal_tracker/robots/*/*.robot"
+  "python_version":"python",
+  "test_cases": "pivotal_tracker/robots/*/*.robot",
+  "args": {
+    "outputdir": "test_results/",
+    "loglevel":"TRACE:DEBUG",
+    "exclude": "",
+    "include": "gherkins",
+    "listener": "pivotal_tracker/libraries/pivotal_listener.py"
+  }
 }
+
