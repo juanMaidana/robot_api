@@ -8,11 +8,11 @@ Currently working with Ubuntu and CentOS.
 * docker.
 * docker-compose.
 
-### Core Test Cases
+### Sample Test Cases
 These are sample test cases that can work as a guide for more complex development. 
 All these samples can be found on the "core" folder and can be run with the command.
 ```
-python -m robot -d test_results/ core/robots/tests*.robot
+python -m robot -d test_results/ examples/robots/tests*.robot
 ```
 *You may manually create a test_results/ folder or change the results path.*
 
@@ -23,7 +23,7 @@ More details [here](#generating-pivotal-config-file).
 
 Then, simply run the following command.
 ```
-python -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py pivotal_tracker/robots/feature*.robot
+python -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py pivotal_tracker/robots/*/*.robot
 ```
 *You might need an account with free-trial account by default. 
 All test objects created are deleted at the end of execution*

@@ -11,6 +11,6 @@ Verify that I can change my username environment variable
 
 Create service yml file as an example
     ${PROJECT_PATH}=    get project path
-    ${CONTENTS}=    get file  ${PROJECT_PATH}/core/docker_compose.dist
-    create file  ${PROJECT_PATH}/core/docker_compose.yml   ${CONTENTS}
-    remove file  ${PROJECT_PATH}/core/docker_compose.yml
+    ${CONTENTS}=    get file  ${PROJECT_PATH}/examples/docker_compose.dist
+    create file  ${PROJECT_PATH}/examples/docker_compose.yml   ${CONTENTS}
+    remove file  ${PROJECT_PATH}/examples/docker_compose.yml

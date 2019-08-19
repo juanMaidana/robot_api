@@ -1,2 +1,3 @@
-import core
+import object_management
+import requests_adapter
 import tests

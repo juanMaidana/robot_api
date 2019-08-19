@@ -1,5 +1,5 @@
-from pivotal_tracker.utils.pivotal_request import PivotalRequest
-from core.utils.json_reader import json_reader
+from pivotal_tracker.pivotal_request.pivotal_request import PivotalRequest
+from object_management.json.json_reader import json_reader
 from os.path import join, realpath, dirname
 
 config = json_reader(join(dirname(realpath(__file__)),
