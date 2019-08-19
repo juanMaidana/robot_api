@@ -9,7 +9,7 @@ Verify that I can get the user's projects list
 
 Verify that I can create a new project
     ${data} =  create dictionary
-    ...     name    vipre_project_test_1
+    ...     name    $R(0)_project_$R(1)
     do request   POST    projects   owner   ${data}
     ${status_code}=     get status code
     should be equal     ${status_code}     200
@@ -24,16 +24,16 @@ Verify that I can get the user's project list - Gherkin version
 
 Verify that I can create a new project - Gherkin version
     ${project_data} =  create dictionary
-    ...     name    vipre_project_test_2
+    ...     name    $R(0)_project_$R(1)
     Given I start a connection with the Pivotal Tracker API as owner
     When I send a POST request to projects with data ${project_data}
     Then I expect the status code is 200
     And I expect the reponse id is not empty
 
-Veirfy taht I can create multiple projects
-    ${project_data_1}=  create dictionary  name=vipre_project_4
-    ${project_data_2}=  create dictionary  name=vipre_project_5
-    ${project_data_3}=  create dictionary  name=vipre_project_6
+Veirfy that I can create multiple projects
+    ${project_data_1}=  create dictionary  name=$R(0)_project1_$R(1)
+    ${project_data_2}=  create dictionary  name=$R(0)_project2_$R(1)
+    ${project_data_3}=  create dictionary  name=$R(0)_project3_$R(1)
     @{projects_data}    create list     ${project_data_1}   ${project_data_2}   ${project_data_3}
     :FOR    ${element}    IN    @{projects_data}
     \   Given I start a connection with the Pivotal Tracker API as owner

@@ -1,6 +1,8 @@
 from pivotal_tracker.pivotal_request.pivotal_request import PivotalRequest
 from pivotal_tracker.context.context import Context
 from object_management.json.json_reader import json_reader
+from datetime import datetime
+from object_management.string.prepare_string import prepare_string
 from os.path import join, realpath, dirname
 from json import dumps
 
@@ -35,7 +37,9 @@ def do_user_request(http_type, endpoint_name, data):
         config["headers"]["token"]: config["users"][context.username]["token"],
         config["headers"]["contents"]: "application/json",
     }
-    data = dumps(data) if data else data
+    data = dumps(data) if data else ''
+    data = prepare_string(data, config["prefix"], datetime.now().
+                          strftime("%m-%d-%Y_%H:%M:%S"))
     context.api.do_request(http_type, context.headers, data=data)
 
 
@@ -54,7 +58,9 @@ def do_request(http_type, endpoint_name, username, data):
         config["headers"]["token"]: config["users"][username]["token"],
         config["headers"]["contents"]: "application/json",
     }
-    data = dumps(data) if data else data
+    data = dumps(data) if data else ''
+    data = prepare_string(data, config["prefix"], datetime.now().
+                          strftime("%m-%d-%Y_%H:%M:%S"))
     context.api.do_request(http_type, context.headers, data=data)
 
 
