@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    resources.robot
+Resource    ../resources.robot
 
 *** Test Cases ***
 Verify that I can get the user's projects list

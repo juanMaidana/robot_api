@@ -1,7 +1,7 @@
 from requests import request
 
 
-class RequestWrapper:
+class RequestAdapter:
     """Generic wrapper for HTTP requests."""
     def __init__(self):
         """Attributes that will be used on basic functions.

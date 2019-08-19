@@ -1,7 +1,6 @@
-from core.libraries.my_library import *
-from pivotal_tracker.utils.pivotal_request import PivotalRequest
-from pivotal_tracker.utils.context import Context
-from core.utils.json_reader import json_reader
+from pivotal_tracker.pivotal_request.pivotal_request import PivotalRequest
+from pivotal_tracker.context.context import Context
+from object_management.json.json_reader import json_reader
 from os.path import join, realpath, dirname
 from json import dumps
 

@@ -1,5 +1,5 @@
 import unittest
-import core.utils.json_reader as jreader
+import object_management.json.json_reader as jreader
 from os.path import join, realpath, dirname
 
 
