@@ -2,7 +2,7 @@ import unittest
 import requests_adapter.request_adapter as wrapper
 
 
-class TestRequestWrapper(unittest.TestCase):
+class TestRequestAdapter(unittest.TestCase):
 
     def test_get_request(self):
         requester = wrapper.RequestAdapter()
