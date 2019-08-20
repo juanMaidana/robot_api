@@ -1,0 +1,8 @@
+{
+  "default_level": "DEBUG",
+  "html": true,
+  "messages": {
+    "success": "Successfully executed. ",
+    "unreadable": "Unable to read message. "
+  }
+}

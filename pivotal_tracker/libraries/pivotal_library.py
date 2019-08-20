@@ -1,16 +1,25 @@
 from pivotal_tracker.pivotal_request.pivotal_request import PivotalRequest
 from pivotal_tracker.context.context import Context
 from object_management.json.json_reader import json_reader
+from json import dumps
 from datetime import datetime
 from object_management.string.prepare_string import prepare_string
 from os.path import join, realpath, dirname
-from json import dumps
+from robot_logs.robot_decorators import print_api_logs
 
 context = Context()
 config = json_reader(join(dirname(realpath(__file__)),
                           '..', 'config.json'))
 endpoints = json_reader(join(dirname(realpath(__file__)),
                              '..', 'endpoints.json'))
+
+
+def request(http_type, data):
+    data = dumps(data) if data else ''
+    data = prepare_string(data, config["prefix"], datetime.now().
+                          strftime("%m-%d-%Y_%H:%M:%S"))
+    context.api.do_request(http_type, context.headers, data=data)
+    return context.api.get_status(), context.api.get_json()
 
 
 def log_in_api(user):
@@ -23,7 +32,8 @@ def log_in_api(user):
     context.username = user
 
 
-def do_user_request(http_type, endpoint_name, data):
+@print_api_logs()
+def send_user_request(http_type, endpoint_name, data):
     """Does an http request given an endpoint key and data.
 
     * This function assumes the username is already set on context.
@@ -37,13 +47,11 @@ def do_user_request(http_type, endpoint_name, data):
         config["headers"]["token"]: config["users"][context.username]["token"],
         config["headers"]["contents"]: "application/json",
     }
-    data = dumps(data) if data else ''
-    data = prepare_string(data, config["prefix"], datetime.now().
-                          strftime("%m-%d-%Y_%H:%M:%S"))
-    context.api.do_request(http_type, context.headers, data=data)
+    return request(http_type, data)
 
 
-def do_request(http_type, endpoint_name, username, data):
+@print_api_logs()
+def send_request(http_type, endpoint_name, username, data):
     """Does an http request given an endpoint key and data.
 
     :param http_type: GET, POST, PUT, DELETE.
@@ -58,10 +66,7 @@ def do_request(http_type, endpoint_name, username, data):
         config["headers"]["token"]: config["users"][username]["token"],
         config["headers"]["contents"]: "application/json",
     }
-    data = dumps(data) if data else ''
-    data = prepare_string(data, config["prefix"], datetime.now().
-                          strftime("%m-%d-%Y_%H:%M:%S"))
-    context.api.do_request(http_type, context.headers, data=data)
+    return request(http_type, data)
 
 
 def get_status_code():
