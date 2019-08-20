@@ -1,10 +1,11 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.6'
-        }
-    }
+    agent any
     stages {
+        agent {
+            docker {
+                image 'python:3.6'
+            }
+        }
         stage('Create Pivotal Tracker Config File') {
             steps {
                 withCredentials([file(credentialsId: 'pivotal_config', variable: 'config')]) {
