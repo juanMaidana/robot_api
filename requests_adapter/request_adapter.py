@@ -1,5 +1,4 @@
 from requests import request
-from robot_logs.robot_decorators import print_logs
 
 
 class RequestAdapter:
@@ -18,7 +17,6 @@ class RequestAdapter:
         """Setter for endpoint attribute."""
         self._endpoint = value
 
-    @print_logs()
     def do_request(self, http_type, headers=None, params=None, data=None):
         """Execute the http request based on a type and given params.
 
