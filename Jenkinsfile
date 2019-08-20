@@ -24,10 +24,7 @@ pipeline {
         }
         stage('Test Pivotal Tracker on Python 2.7.16 - robotframework==latest') {
             steps {
-                sh'python2 -m robot -d test_results/ ' \
-                  '--listener pivotal_tracker/libraries/pivotal_listener.py ' \
-                  '--loglevel DEBUG ' \
-                  'pivotal_tracker/robots/*/*.robot'
+                sh'python2 -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py --loglevel DEBUG pivotal_tracker/robots/*/*.robot'
             }
             post {
                 always{
@@ -42,10 +39,7 @@ pipeline {
         }
         stage('Test Pivotal Tracker on Python 2.7.16 - robotframework==3.0.1') {
             steps {
-                sh'python2 -m robot -d test_results/ ' \
-                  '--listener pivotal_tracker/libraries/pivotal_listener.py ' \
-                  '--loglevel DEBUG ' \
-                  'pivotal_tracker/robots/*/*.robot'
+                sh'python2 -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py --loglevel DEBUG pivotal_tracker/robots/*/*.robot'
             }
             post {
                 always{
@@ -60,10 +54,7 @@ pipeline {
         }
         stage('Test Pivotal Tracker on Python 3.6.9 - robotframework==latest') {
             steps {
-                sh'python3 -m robot -d test_results/ ' \
-                  '--listener pivotal_tracker/libraries/pivotal_listener.py ' \
-                  '--loglevel DEBUG ' \
-                  'pivotal_tracker/robots/*/*.robot'
+                sh'python3 -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py --loglevel DEBUG pivotal_tracker/robots/*/*.robot'
             }
             post {
                 always{
@@ -78,10 +69,7 @@ pipeline {
         }
         stage('Test Pivotal Tracker on Python 3.6.9 - robotframework==3.0.1') {
             steps {
-                sh'python3 -m robot -d test_results/ ' \
-                  '--listener pivotal_tracker/libraries/pivotal_listener.py ' \
-                  '--loglevel DEBUG ' \
-                  'pivotal_tracker/robots/*/*.robot'
+                sh'python3 -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py --loglevel DEBUG pivotal_tracker/robots/*/*.robot'
             }
             post {
                 always{
