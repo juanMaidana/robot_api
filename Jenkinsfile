@@ -29,7 +29,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_p2_rl.html'
+                    archiveArtifacts(artifacts: 'test_results/log_p2_rl.html', fingerprint: true)
                 }
             }
         }
@@ -44,7 +45,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_p2_r3.html'
+                    archiveArtifacts(artifacts: 'test_results/log_p2_r3.html', fingerprint: true)
                 }
             }
         }
@@ -59,7 +61,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_p3_rl.html'
+                    archiveArtifacts(artifacts: 'test_results/log_p3_rl.html', fingerprint: true)
                 }
             }
         }
@@ -74,7 +77,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_p3_r3.html'
+                    archiveArtifacts(artifacts: 'test_results/log_p3_r3.html', fingerprint: true)
                 }
             }
         }
