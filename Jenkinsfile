@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'python:3.6'
+            args '-u root:sudo'
         }
     }
     stages {
@@ -14,7 +15,7 @@ pipeline {
         }
         stage('Get package pip2') {
             steps {
-                sh'sudo apt-get update && sudo apt-get install python-pip -y'
+                sh'apt-get update && apt-get install python-pip -y'
             }
         }
         stage('Install python2 requirements') {
