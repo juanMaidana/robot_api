@@ -25,9 +25,9 @@ Then, simply run the following command.
 ```
 python -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py pivotal_tracker/robots/*/*.robot
 ```
-If it is only necessary to run the test cases tagged with Gherkins language, execute:
+To run only features with a certain tag you may use the '-i' flag, for example to run features tagged as gherkin:
 ```
-python -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py -i gherkins pivotal_tracker/robots/*/*.robot
+python -m robot -d test_results/ --listener pivotal_tracker/libraries/pivotal_listener.py -i gherkin pivotal_tracker/robots/*/*.robot
 ```
 *You might need an account with free-trial account by default. 
 All test objects created are deleted at the end of execution*
