@@ -29,7 +29,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_python2_robot_latest.html'
+                    archiveArtifacts(artifacts: 'test_results/log_python2_robot_latest.html', fingerprint: true)
                 }
             }
         }
@@ -44,7 +45,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_python2_robot_301.html'
+                    archiveArtifacts(artifacts: 'test_results/log_python2_robot_301.html', fingerprint: true)
                 }
             }
         }
@@ -59,7 +61,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_python3_robot_latest.html'
+                    archiveArtifacts(artifacts: 'test_results/log_python3_robot_latest.html', fingerprint: true)
                 }
             }
         }
@@ -74,7 +77,8 @@ pipeline {
             }
             post {
                 always{
-                    archiveArtifacts(artifacts: 'test_results/log.html', fingerprint: true)
+                    sh'mv test_results/log.html test_results/log_python3_robot_301.html'
+                    archiveArtifacts(artifacts: 'test_results/log_python3_robot_301.html', fingerprint: true)
                 }
             }
         }
