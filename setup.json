@@ -3,9 +3,9 @@
   "test_cases": "pivotal_tracker/robots/*/*.robot",
   "args": {
     "outputdir": "test_results/",
-    "loglevel":"TRACE:DEBUG",
+    "loglevel":"DEBUG",
     "exclude": "",
-    "include": "gherkins",
+    "include": "",
     "listener": "pivotal_tracker/libraries/pivotal_listener.py"
   }
 }
