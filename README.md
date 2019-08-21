@@ -1,7 +1,12 @@
 # Robot Framework API (robot_api)
+
+## Overview
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=AWT03_pivotal-tests&metric=alert_status)](https://sonarcloud.io/dashboard?id=vipre-subteam_robot_api)
+
 API Testing using RobotFramework. 
 
 Currently working with Ubuntu and CentOS.
+
 
 ## Requirements
 * python2.7 (specific libraries can be found on requirements.txt).
